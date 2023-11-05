@@ -1,0 +1,32 @@
+---
+name: pihole
+help: A set of Pihole tools
+version: 0.1.0
+
+dependencies:
+  curl: "https://curl.se"
+  jq: "https://jqlang.github.io/jq/"
+
+environment_variables:
+  - name: pihole_address
+    help: "The address of the Pihole, example: http://192.168.2.102"
+    required: true
+  - name: pihole_api_key
+    help: Pihole API key
+    required: true
+
+commands:
+  - name: pause
+    alias: p
+    help: Pause Pihole DNS blocking
+    args:
+      - name: seconds
+        default: "30"
+        help: How many seconds to pause
+  - name: status
+    alias: s
+    help: Status of Pihole DNS
+
+examples:
+  - pihole status
+  - pihole pause 300
